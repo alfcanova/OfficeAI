@@ -2,6 +2,8 @@
 
 Conjunto modular de scripts Bash para instalação e gerenciamento de ferramentas de desenvolvimento e CLIs de IA. **A pasta OfficeAI é auto-contida**: todas as ferramentas são instaladas, executadas e mantêm dados (config/cache/credenciais) **dentro da pasta** — nada vaza para o sistema host (sem `sudo`, sem `/usr/local`, sem `~/.local/bin`).
 
+---
+
 ## Estrutura
 
 ```
@@ -19,6 +21,8 @@ OfficeAI/
 └── logs/         # Logs de instalação
 ```
 
+---
+
 ## Fluxo de Instalação
 
 ```bash
@@ -34,6 +38,8 @@ Cada menu suporta: `[1-9]` instalar individual, `[A]` instalar todos, `[P]` fase
 
 > **Fase 0 é 100% local** (Python+uv via binário). Compiladores não são instalados;
 > Node.js é instalado pela fase 1 via tarball.
+
+---
 
 ## Ativação / Desativação de Ambiente
 
@@ -51,11 +57,15 @@ source bin/01.01_setenv_rust.sh    # Ativar Rust
 source bin/01.01_unsetenv_rust.sh  # Desativar Rust
 ```
 
+---
+
 ### Ativação automática (opcional)
 
 `00_SystemBase.sh` (opção `[A]`) adiciona um **bloco condicional único** ao `~/.bashrc`
 real, que ativa o ambiente só se `$HOME/.officeai/etc/00_envGeneral.sh` existir
 (`$HOME/.officeai` é um symlink para a pasta OfficeAI).
+
+---
 
 ## Portabilidade (mover a pasta)
 
@@ -68,6 +78,8 @@ bash scripts/link_local.sh          # regera symlinks de bin/ + $HOME/.officeai
 Todos os scripts resolvem `OFFICEAI_ROOT` dinamicamente a partir do próprio caminho —
 nenhum caminho absoluto é hardcoded.
 
+---
+
 ## Migração de instalações antigas (`modules/`)
 
 Instalações existentes em `modules/` (layout antigo) migram sem redownload:
@@ -76,6 +88,8 @@ Instalações existentes em `modules/` (layout antigo) migram sem redownload:
 bash scripts/10_migrate_layout.sh   # move modules/ -> lib/ (mv local) + cria bin/
 ```
 
+---
+
 ## Documentação Web
 
 ```bash
@@ -83,6 +97,8 @@ python3 scripts/server.py          # Inicia servidor na porta 8765
 python3 scripts/server.py 9000     # Porta personalizada
 python3 -m py_compile scripts/server.py  # checar sintaxe
 ```
+
+---
 
 ## Layout de instalação por ferramenta
 
@@ -101,6 +117,8 @@ python3 -m py_compile scripts/server.py  # checar sintaxe
 | llama.cpp | `lib/llamacpp/bin` | `bin/llama-*` | — |
 | GUI (Jan, LM Studio, VS Code) | `lib/<tool>` | `bin/<tool>` (AppImage/tarball) | `var/home` |
 
+---
+
 ## Tecnologias
 
 | Categoria | Tecnologias |
@@ -115,6 +133,8 @@ python3 -m py_compile scripts/server.py  # checar sintaxe
 | GUI | VS Code, VSCodium |
 | Compatibilidade | Linux (Debian 13+), sem root, sem bwrap |
 
+---
+
 ## Padrões Arquiteturais
 
 - **Auto-contido** — instalações em `lib/`, executáveis linkados em `bin/`, HOME virtual em `var/home/`
@@ -123,6 +143,8 @@ python3 -m py_compile scripts/server.py  # checar sintaxe
 - **Auto-descoberta** — hubs detectam scripts por glob (`01.XX_Language*.sh`, `02.XX_CLI*.sh`, ...)
 - **Portabilidade** — `OFFICEAI_ROOT` sempre resolvido dinamicamente; `link_local.sh` re-links após mover a pasta
 - **Migração sem redownload** — `10_migrate_layout.sh` move `modules/` → `lib/`
+
+---
 
 
 

@@ -123,3 +123,10 @@ python3 -m py_compile scripts/server.py  # checar sintaxe
 - **Auto-descoberta** — hubs detectam scripts por glob (`01.XX_Language*.sh`, `02.XX_CLI*.sh`, ...)
 - **Portabilidade** — `OFFICEAI_ROOT` sempre resolvido dinamicamente; `link_local.sh` re-links após mover a pasta
 - **Migração sem redownload** — `10_migrate_layout.sh` move `modules/` → `lib/`
+
+  ## 📄 Licença
+
+Este projeto é desenvolvido para fins de pesquisa e desenvolvimento de linguagens de programação. Consulte a documentação em docs/ para obter detalhes completos da especificação e licença.
+
+               GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007 Copyright (C) 2007 Free Software

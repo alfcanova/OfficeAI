@@ -124,8 +124,9 @@ python3 -m py_compile scripts/server.py  # checar sintaxe
 - **Portabilidade** — `OFFICEAI_ROOT` sempre resolvido dinamicamente; `link_local.sh` re-links após mover a pasta
 - **Migração sem redownload** — `10_migrate_layout.sh` move `modules/` → `lib/`
 
-  ## 📄 Licença
 
+
+## 📄 Licença
 Este projeto é desenvolvido para fins de pesquisa e desenvolvimento de linguagens de programação. Consulte a documentação em docs/ para obter detalhes completos da especificação e licença.
 
                GNU GENERAL PUBLIC LICENSE

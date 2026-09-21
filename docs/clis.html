@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIs de IA - OfficeAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand">OfficeAI</a>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="system.html">Sistema Base</a></li>
+                <li><a href="linguagens.html">Linguagens</a></li>
+                <li><a href="clis.html" class="active">CLIs</a></li>
+                <li><a href="llms.html">LLMs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a> / CLIs de IA
+        </div>
+
+        <header>
+            <h1>&#x1F916; CLIs de IA <span class="flag" data-counter="true">Verificando...</span></h1>
+            <p>Ferramentas de linha de comando para assistencia de codigo com inteligencia artificial.</p>
+        </header>
+
+        <section>
+            <h2>Visao Geral</h2>
+            <p>
+                O OfficeAI oferece instalacao isolada para 9 CLIs de IA populares. Cada CLI e instalada
+                em seu proprio diretorio dentro de <code>lib/</code>, com scripts de ambiente
+                gerados automaticamente para ativar/desativar o PATH.
+            </p>
+        </section>
+
+        <section>
+            <h2>Tabela Comparativa</h2>
+            <table class="info-table">
+                <tr>
+                    <th>#</th>
+                    <th>CLI</th>
+                    <th>Binario</th>
+                    <th>Metodo Principal</th>
+                    <th>Requisito</th>
+                </tr>
+                <tr>
+                    <td>02.01</td>
+                    <td><strong>OpenCode</strong></td>
+                    <td><code>opencode</code></td>
+                    <td>curl / binario</td>
+                    <td>Nenhum</td>
+                </tr>
+                <tr>
+                    <td>02.02</td>
+                    <td><strong>FreeBuff</strong></td>
+                    <td><code>freebuff</code></td>
+                    <td>npm</td>
+                    <td>Node.js 18+</td>
+                </tr>
+                <tr>
+                    <td>02.03</td>
+                    <td><strong>Aider</strong></td>
+                    <td><code>aider</code></td>
+                    <td>uv / pip</td>
+                    <td>Python 3.8+</td>
+                </tr>
+                <tr>
+                    <td>02.04</td>
+                    <td><strong>Codex</strong></td>
+                    <td><code>codex</code></td>
+                    <td>npm</td>
+                    <td>Node.js</td>
+                </tr>
+                <tr>
+                    <td>02.05</td>
+                    <td><strong>Antigravity</strong></td>
+                    <td><code>agy</code></td>
+                    <td>curl script</td>
+                    <td>Nenhum</td>
+                </tr>
+                <tr>
+                    <td>02.06</td>
+                    <td><strong>Kimi</strong></td>
+                    <td><code>kimi</code></td>
+                    <td>uv / pip</td>
+                    <td>Python</td>
+                </tr>
+                <tr>
+                    <td>02.07</td>
+                    <td><strong>Qwen Code</strong></td>
+                    <td><code>qwen</code></td>
+                    <td>npm</td>
+                    <td>Node.js 22+</td>
+                </tr>
+                <tr>
+                    <td>02.08</td>
+                    <td><strong>Claude Code</strong></td>
+                    <td><code>claude</code></td>
+                    <td>curl script</td>
+                    <td>Node.js 18+ (npm)</td>
+                </tr>
+                <tr>
+                    <td>02.09</td>
+                    <td><strong>Copilot</strong></td>
+                    <td><code>copilot</code></td>
+                    <td>curl script</td>
+                    <td>Node.js 22+ (npm)</td>
+                </tr>
+                <tr>
+                    <td>02.10</td>
+                    <td><strong>Pi</strong></td>
+                    <td><code>pi</code></td>
+                    <td>curl script / pip</td>
+                    <td>Python 3.8+ (pip)</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>OpenCode <span class="flag" data-tool="opencode" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                Interface de linha de comando para o OpenCode, ferramenta de assistencia de codigo
+                com IA. Suporta multiplos provedores de LLM.
+            </p>
+            <div class="links-grid">
+                <a href="https://opencode.ai" target="_blank">&#x1F517; opencode.ai</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Binario</th><td><code>opencode</code></td></tr>
+                <tr><th>Metodo</th><td>Script de instalacao / binario direto / npm</td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>opencode</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/02.01_setenv_opencode.sh" data-label="opencode">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.01_setenv_opencode.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/02.01_unsetenv_opencode.sh" data-label="opencode">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.01_unsetenv_opencode.sh</code></pre>
+                </div>
+            </div>
+            <h3>Uso</h3>
+<pre><code># Iniciar assistente de codigo
+opencode
+
+# Comandos dentro do assistente
+/help</code></pre>
+        </section>
+
+        <section>
+            <h2>FreeBuff <span class="flag" data-tool="freebuff" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                CLI para o FreeBuff, ferramenta de assistencia de codigo com IA.
+            </p>
+            <table class="info-table">
+                <tr><th>Binario</th><td><code>freebuff</code></td></tr>
+                <tr><th>Metodo</th><td>npm (Node.js 18+)</td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>freebuff</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/02.02_setenv_freebuff.sh" data-label="freebuff">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.02_setenv_freebuff.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/02.02_unsetenv_freebuff.sh" data-label="freebuff">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.02_unsetenv_freebuff.sh</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Aider <span class="flag" data-tool="aider" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                CLI para o Aider, assistente de programacao que trabalha diretamente com seus arquivos
+                de codigo. Suporta multiplos LLMs e edita arquivos automaticamente.
+            </p>
+            <div class="links-grid">
+                <a href="https://aider.chat" target="_blank">&#x1F517; aider.chat</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Binario</th><td><code>aider</code></td></tr>
+                <tr><th>Metodo</th><td>uv tool / pip com venv</td></tr>
+                <tr><th>Requisito</th><td><span class="badge required">Python 3.8+</span></td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>aider</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/02.03_setenv_aider.sh" data-label="aider">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.03_setenv_aider.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/02.03_unsetenv_aider.sh" data-label="aider">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.03_unsetenv_aider.sh</code></pre>
+                </div>
+            </div>
+            <h3>Uso</h3>
+<pre><code># Iniciar no diretorio do projeto
+aider
+
+# Com modelo especifico
+aider --model gpt-4</code></pre>
+        </section>
+
+        <section>
+            <h2>Codex <span class="flag" data-tool="codex" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                CLI oficial do OpenAI Codex para assistencia de codigo com IA.
+            </p>
+            <div class="links-grid">
+                <a href="https://chatgpt.com/codex" target="_blank">&#x1F517; chatgpt.com/codex</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Binario</th><td><code>codex</code></td></tr>
+                <tr><th>Metodo</th><td>npm / script oficial</td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>codex</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/02.04_setenv_codex.sh" data-label="codex">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.04_setenv_codex.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/02.04_unsetenv_codex.sh" data-label="codex">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.04_unsetenv_codex.sh</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Antigravity (agy) <span class="flag" data-tool="antigravity" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                CLI do Google Antigravity para assistencia de codigo com IA.
+            </p>
+            <div class="links-grid">
+                <a href="https://antigravity.google" target="_blank">&#x1F517; antigravity.google</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Binario</th><td><code>agy</code></td></tr>
+                <tr><th>Metodo</th><td>Script oficial Google</td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>agy</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/02.05_setenv_antigravity.sh" data-label="agy">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.05_setenv_antigravity.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/02.05_unsetenv_antigravity.sh" data-label="agy">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.05_unsetenv_antigravity.sh</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Kimi <span class="flag" data-tool="kimi" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                CLI para o Kimi, assistente de codigo com IA baseado em Python.
+            </p>
+            <table class="info-table">
+                <tr><th>Binario</th><td><code>kimi</code></td></tr>
+                <tr><th>Metodo</th><td>uv tool / pip com venv</td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>kimi</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/02.06_setenv_kimi.sh" data-label="kimi">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.06_setenv_kimi.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/02.06_unsetenv_kimi.sh" data-label="kimi">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.06_unsetenv_kimi.sh</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Qwen Code <span class="flag" data-tool="qwen" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                CLI para o Qwen Code, assistente de codigo com IA desenvolvido pela Alibaba.
+            </p>
+            <div class="links-grid">
+                <a href="https://github.com/QwenLM" target="_blank">&#x1F517; GitHub Qwen</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Binario</th><td><code>qwen</code></td></tr>
+                <tr><th>Metodo</th><td>npm / script oficial</td></tr>
+                <tr><th>Requisito</th><td><span class="badge required">Node.js 22+</span></td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>qwen</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/02.07_setenv_qwen.sh" data-label="qwen">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.07_setenv_qwen.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/02.07_unsetenv_qwen.sh" data-label="qwen">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.07_unsetenv_qwen.sh</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Claude Code <span class="flag" data-tool="claude" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                CLI oficial do Anthropic Claude para assistencia de codigo com IA.
+            </p>
+            <div class="links-grid">
+                <a href="https://claude.ai" target="_blank">&#x1F517; claude.ai</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Binario</th><td><code>claude</code></td></tr>
+                <tr><th>Metodo</th><td>Script oficial (npm deprecated)</td></tr>
+                <tr><th>Requisito</th><td><span class="badge optional">Node.js 18+ (npm)</span></td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>claude</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/02.08_setenv_claude.sh" data-label="claude">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.08_setenv_claude.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/02.08_unsetenv_claude.sh" data-label="claude">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.08_unsetenv_claude.sh</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>GitHub Copilot <span class="flag" data-tool="copilot" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                CLI oficial do GitHub Copilot para assistencia de codigo com IA.
+            </p>
+            <div class="links-grid">
+                <a href="https://github.com/features/copilot" target="_blank">&#x1F517; GitHub Copilot</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Binario</th><td><code>copilot</code></td></tr>
+                <tr><th>Metodo</th><td>Script oficial / npm</td></tr>
+                <tr><th>Requisito</th><td><span class="badge optional">Node.js 22+ (npm)</span></td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>copilot</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/02.09_setenv_copilot.sh" data-label="copilot">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.09_setenv_copilot.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/02.09_unsetenv_copilot.sh" data-label="copilot">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.09_unsetenv_copilot.sh</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pi <span class="flag" data-tool="pi" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                Agente de programacao minimalista e extensivel. Adaptado ao seu fluxo de trabalho,
+                nao o contrario. Suporta 15+ provedores e centenas de modelos.
+            </p>
+            <div class="links-grid">
+                <a href="https://pi.dev" target="_blank">&#x1F517; pi.dev</a>
+                <a href="https://github.com/earendil-works/pi" target="_blank">&#x1F4BB; GitHub</a>
+                <a href="https://www.npmjs.com/package/@earendil-works/pi-coding-agent" target="_blank">&#x1F4E6; npm</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Binario</th><td><code>pi</code></td></tr>
+                <tr><th>Metodo</th><td>Script oficial / npm / pnpm / bun</td></tr>
+                <tr><th>Pacote</th><td><code>@earendil-works/pi-coding-agent</code></td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>pi</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/02.10_setenv_pi.sh" data-label="pi">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.10_setenv_pi.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/02.10_unsetenv_pi.sh" data-label="pi">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/02.10_unsetenv_pi.sh</code></pre>
+                </div>
+            </div>
+            <h3>Recursos</h3>
+            <ul>
+                <li>Modos: interativo, print/JSON, RPC, SDK</li>
+                <li>15+ provedores: Anthropic, OpenAI, Google, Ollama, etc.</li>
+                <li>Historico em arvore com branches</li>
+                <li>Extensivel via extensions, skills e packages</li>
+                <li>AGENTS.md e SYSTEM.md para contexto</li>
+            </ul>
+            <h3>Uso</h3>
+<pre><code># Iniciar modo interativo
+pi
+
+# Modo print
+pi -p "explique este codigo"
+
+# Trocar modelo
+# Ctrl+L ou /model
+
+# Instalar extensao
+pi install npm:@foo/pi-tools</code></pre>
+        </section>
+
+        <section>
+            <h2>Instalacao</h2>
+            <p>Execute o menu interativo da Fase 02:</p>
+<pre><code>./scripts/02.00_CLIs.sh</code></pre>
+            <p>Ou instale individualmente:</p>
+<pre><code># Exemplo: instalar Aider
+./scripts/02.03_CLIsAider.sh</code></pre>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            OfficeAI &mdash; Sistema de Instalacao Modular
+        </div>
+    </footer>
+    <script src="env-executor.js"></script>
+    <script src="status-checker.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go - OfficeAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand">OfficeAI</a>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="system.html">Sistema Base</a></li>
+                <li><a href="linguagens.html" class="active">Linguagens</a></li>
+                <li><a href="clis.html">CLIs</a></li>
+                <li><a href="llms.html">LLMs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a> / Go
+        </div>
+
+        <header>
+            <h1>&#x1F4A0; Go <span class="flag unavailable">Indisponivel</span></h1>
+            <p>Linguagem compilada para servicos de alto desempenho e ferramentas CLI.</p>
+        </header>
+
+        <div class="links-grid">
+            <a href="https://go.dev/" target="_blank">&#x1F517; go.dev</a>
+            <a href="https://pkg.go.dev/" target="_blank">&#x1F517; pkg.go.dev</a>
+            <a href="https://go.dev/doc/" target="_blank">&#x1F517; Go Docs</a>
+        </div>
+
+        <section>
+            <h2>Descricao</h2>
+            <p>
+                <strong>Go</strong> (Golang) e instalado como binario oficial extraido para
+                o diretorio do projeto. O Go e amplamente utilizado para servicos backend,
+                APIs, microservicos e ferramentas de linha de comando.
+            </p>
+            <br>
+            <p>
+                A instalacao inclui ferramentas essenciais para desenvolvimento:
+                <code>gopls</code> (language server), <code>dlv</code> (debugger),
+                <code>staticcheck</code> (analisador estatico) e <code>golangci-lint</code> (linter aggregator).
+            </p>
+        </section>
+
+        <section>
+            <h2>Informacoes de Instalacao</h2>
+            <table class="info-table">
+                <tr>
+                    <th>Versao</th>
+                    <td>1.22.5</td>
+                </tr>
+                <tr>
+                    <th>Metodo</th>
+                    <td><span class="badge required">Binario oficial</span></td>
+                </tr>
+                <tr>
+                    <th>Diretorio</th>
+                    <td>$OFFICEAI_ROOT/lib/go/</td>
+                </tr>
+                <tr>
+                    <th>Executaveis</th>
+                    <td>
+                        <ul class="exec-list">
+                            <li>go</li>
+                            <li>gofmt</li>
+                            <li>gopls</li>
+                            <li>dlv</li>
+                            <li>staticcheck</li>
+                            <li>golangci-lint</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Ambiente</h2>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/01.03_setenv_go.sh" data-label="Go">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.03_setenv_go.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/01.03_unsetenv_go.sh" data-label="Go">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.03_unsetenv_go.sh</code></pre>
+                </div>
+            </div>
+
+            <h3>Variaveis de Ambiente</h3>
+            <table class="info-table">
+                <tr>
+                    <th>PATH</th>
+                    <td>Adiciona <code>$OFFICEAI_ROOT/lib/go/bin/</code></td>
+                </tr>
+                <tr>
+                    <th>GOPATH</th>
+                    <td><code>$HOME/go</code></td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Uso</h2>
+<pre><code># Criar modulo
+go mod init github.com/usuario/projeto
+
+# Executar
+go run main.go
+
+# Compilar
+go build -o meu-app
+
+# Baixar dependencias
+go mod tidy
+
+# Rodar testes
+go test ./...
+
+# Instalar ferramenta
+go install golang.org/x/tools/gopls@latest</code></pre>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            OfficeAI &mdash; Sistema de Instalacao Modular
+        </div>
+    </footer>
+    <script src="env-executor.js"></script>
+</body>
+</html>

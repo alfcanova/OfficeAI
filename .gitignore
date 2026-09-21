@@ -1,0 +1,52 @@
+# ============================================================================
+# OfficeAI - .gitignore
+# Versiona apenas codigo-fonte e documentacao. Runtimes (lib/<tool>), modelos,
+# dados (var/), logs e credenciais ficam de fora (auto-contido no disco).
+# ============================================================================
+
+# Credenciais / segredos
+etc/Tokens.sh
+.env
+*.env
+!*.env.example
+etc/.secrets/
+
+# Runtimes instalados (mantem apenas as bibliotecas bash em lib/*.sh)
+lib/*
+!lib/*.sh
+
+# Modelos e dados
+ollama_models/
+share/models/
+share/ollama-models/
+var/
+
+# Logs e backups
+logs/
+*.log
+bak/
+
+# Executaveis gerados (regerados por link_local.sh / instaladores)
+bin/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Rust / Go / Caches
+target/
+*.rs.bk
+
+# Sistema / Editores
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js LTS - OfficeAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand">OfficeAI</a>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="system.html">Sistema Base</a></li>
+                <li><a href="linguagens.html" class="active">Linguagens</a></li>
+                <li><a href="clis.html">CLIs</a></li>
+                <li><a href="llms.html">LLMs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a> / Node.js LTS
+        </div>
+
+        <header>
+            <h1>&#x1F7E2; Node.js LTS <span class="flag available">Disponivel</span></h1>
+            <p>Runtime JavaScript para desenvolvimento de aplicacoes backend e ferramentas CLI.</p>
+        </header>
+
+        <div class="links-grid">
+            <a href="https://nodejs.org/" target="_blank">&#x1F517; nodejs.org</a>
+            <a href="https://docs.npmjs.com/" target="_blank">&#x1F517; npm docs</a>
+        </div>
+
+        <section>
+            <h2>Descricao</h2>
+            <p>
+                <strong>Node.js</strong> e instalado via repositorio NodeSource, fornecendo
+                a versao LTS (Long Term Support) com suporte de seguranca prolongado.
+                Inclui npm (Node Package Manager) para gerenciamento de pacotes.
+            </p>
+            <br>
+            <p>
+                A instalacao inclui ferramentas globais uteis para desenvolvimento:
+                <code>pnpm</code>, <code>eslint</code>, <code>prettier</code>,
+                <code>typescript</code>, <code>ts-node</code> e <code>nodemon</code>.
+            </p>
+        </section>
+
+        <section>
+            <h2>Informacoes de Instalacao</h2>
+            <table class="info-table">
+                <tr>
+                    <th>Metodo</th>
+                    <td><span class="badge required">NodeSource (apt)</span></td>
+                </tr>
+                <tr>
+                    <th>Diretorio</th>
+                    <td><span class="badge optional">Sistema</span></td>
+                </tr>
+                <tr>
+                    <th>Executaveis</th>
+                    <td>
+                        <ul class="exec-list">
+                            <li>node</li>
+                            <li>npm</li>
+                            <li>npx</li>
+                            <li>pnpm</li>
+                            <li>tsc</li>
+                            <li>ts-node</li>
+                            <li>nodemon</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Ambiente</h2>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/01.04_setenv_nodejs.sh" data-label="Node.js">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.04_setenv_nodejs.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/01.04_unsetenv_nodejs.sh" data-label="Node.js">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.04_unsetenv_nodejs.sh</code></pre>
+                </div>
+            </div>
+
+            <h3>Variavel de Ambiente</h3>
+            <table class="info-table">
+                <tr>
+                    <th>PATH</th>
+                    <td>Adiciona <code>$OFFICEAI_ROOT/lib/node/bin/</code></td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Uso</h2>
+<pre><code># Criar projeto
+mkdir meu-projeto && cd meu-projeto
+npm init -y
+
+# Instalar dependencias
+npm install express
+
+# Executar com nodemon
+nodemon src/index.js
+
+# Compilar TypeScript
+tsc --init
+tsc -w</code></pre>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            OfficeAI &mdash; Sistema de Instalacao Modular
+        </div>
+    </footer>
+    <script src="env-executor.js"></script>
+</body>
+</html>

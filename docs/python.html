@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python + uv - OfficeAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand">OfficeAI</a>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="system.html">Sistema Base</a></li>
+                <li><a href="linguagens.html" class="active">Linguagens</a></li>
+                <li><a href="clis.html">CLIs</a></li>
+                <li><a href="llms.html">LLMs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a> / Python + uv
+        </div>
+
+        <header>
+            <h1>&#x1F40D; Python + uv <span class="flag available" id="py-flag">Disponivel</span></h1>
+            <p>Linguagem interpretada de alto nivel + gerenciador de pacotes ultra-rapido.</p>
+        </header>
+
+        <div class="links-grid">
+            <a href="https://www.python.org/" target="_blank">&#x1F517; python.org</a>
+            <a href="https://docs.astral.sh/uv/" target="_blank">&#x1F517; uv - Astral</a>
+        </div>
+
+        <section>
+            <h2>Descricao</h2>
+            <p>
+                <strong>Python</strong> e instalado via <code>apt</code> (sistema padrao do Debian),
+                garantindo compatibilidade com ferramentas do sistema que dependem do Python.
+            </p>
+            <br>
+            <p>
+                <strong>uv</strong> e um gerenciador de pacotes Python desenvolvido pela Astral,
+                escrito em Rust. E extremamente rapido para instalacao de pacotes e criacao de
+                ambientes virtuais, substituindo pip, pip-tools e virtualenv.
+            </p>
+        </section>
+
+        <section>
+            <h2>Informacoes de Instalacao</h2>
+            <table class="info-table">
+                <tr>
+                    <th>Python</th>
+                    <td><span class="badge required">apt (sistema)</span></td>
+                </tr>
+                <tr>
+                    <th>uv</th>
+                    <td>$OFFICEAI_ROOT/lib/languages/uv/</td>
+                </tr>
+                <tr>
+                    <th>Links em bin/</th>
+                    <td>
+                        <ul class="exec-list">
+                            <li>uv</li>
+                            <li>uvx</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Ambiente</h2>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/00_setenv_SystemBase.sh" data-label="uv">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/00_setenv_SystemBase.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/00_unsetenv_SystemBase.sh" data-label="uv">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/00_unsetenv_SystemBase.sh</code></pre>
+                </div>
+            </div>
+
+            <h3>Variavel de Ambiente</h3>
+            <table class="info-table">
+                <tr>
+                    <th>PATH</th>
+                    <td>Adiciona <code>$OFFICEAI_ROOT/lib/languages/uv/</code></td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Uso</h2>
+<pre><code># Criar ambiente virtual
+uv venv
+
+# Instalar pacotes
+uv pip install requests
+
+# Instalar ferramenta
+uvx ruff check .
+
+# Buscar pacotes
+uv pip search flask</code></pre>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            OfficeAI &mdash; Sistema de Instalacao Modular
+        </div>
+    </footer>
+    <script src="env-executor.js"></script>
+</body>
+</html>

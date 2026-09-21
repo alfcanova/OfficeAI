@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidores LLM - OfficeAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand">OfficeAI</a>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="system.html">Sistema Base</a></li>
+                <li><a href="linguagens.html">Linguagens</a></li>
+                <li><a href="clis.html">CLIs</a></li>
+                <li><a href="llms.html" class="active">LLMs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a> / Servidores LLM
+        </div>
+
+        <header>
+            <h1>&#x1F9E0; Servidores LLM <span class="flag" data-counter="true">Verificando...</span></h1>
+            <p>Servidores para executar modelos de linguagem localmente com API compativel.</p>
+        </header>
+
+        <section>
+            <h2>Visao Geral</h2>
+            <p>
+                O OfficeAI oferece instalacao para 6 servidores LLM populares. Cada servidor e instalado
+                em seu proprio diretorio dentro de <code>lib/</code>, com scripts de ambiente
+                gerados automaticamente. A maioria oferece API compativel com OpenAI para integracao facil.
+            </p>
+        </section>
+
+        <section>
+            <h2>Tabela Comparativa</h2>
+            <table class="info-table">
+                <tr>
+                    <th>Servidor</th>
+                    <th>Porta</th>
+                    <th>API OpenAI</th>
+                    <th>Metodo</th>
+                    <th>GPU</th>
+                </tr>
+                <tr>
+                    <td><strong>vLLM</strong></td>
+                    <td>8000</td>
+                    <td>&#x2705;</td>
+                    <td>Docker / pip</td>
+                    <td>NVIDIA / AMD</td>
+                </tr>
+                <tr>
+                    <td><strong>Ollama</strong></td>
+                    <td>11434</td>
+                    <td>&#x274C; Nativo</td>
+                    <td>Script oficial</td>
+                    <td>Auto-config</td>
+                </tr>
+                <tr>
+                    <td><strong>llama.cpp</strong></td>
+                    <td>8080</td>
+                    <td>&#x2705;</td>
+                    <td>Binario pre-compilado</td>
+                    <td>NVIDIA / AMD / Vulkan</td>
+                </tr>
+                <tr>
+                    <td><strong>LocalAI</strong></td>
+                    <td>8080</td>
+                    <td>&#x2705;</td>
+                    <td>Docker / binario</td>
+                    <td>NVIDIA / AMD</td>
+                </tr>
+                <tr>
+                    <td><strong>Jan AI</strong></td>
+                    <td>1337</td>
+                    <td>&#x2705;</td>
+                    <td>AppImage / .deb</td>
+                    <td>Via backend</td>
+                </tr>
+                <tr>
+                    <td><strong>LM Studio</strong></td>
+                    <td>1234</td>
+                    <td>&#x2705; (/v1)</td>
+                    <td>Script oficial</td>
+                    <td>Via backend</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>vLLM <span class="flag" data-tool="vllm" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                Motor de servico LLM de alta performance com API compativel com OpenAI.
+                Otimizado para throughput elevado com suporte a batching continuo.
+            </p>
+            <div class="links-grid">
+                <a href="https://docs.vllm.ai" target="_blank">&#x1F517; docs.vllm.ai</a>
+                <a href="https://github.com/vllm-project/vllm" target="_blank">&#x1F4BB; GitHub</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Porta</th><td>8000</td></tr>
+                <tr><th>Metodo</th><td>Docker (principal) / pip/uv (fallback)</td></tr>
+                <tr><th>Imagem</th><td><code>vllm/vllm-openai:latest</code></td></tr>
+                <tr><th>Modelo Padrao</th><td>Qwen/Qwen3-0.6B</td></tr>
+                <tr><th>Dir. Instalacao</th><td><code>lib/vllm/</code></td></tr>
+            </table>
+
+            <h3>Variaveis de Ambiente</h3>
+            <table class="info-table">
+                <tr><th>VLLM_API_URL</th><td><code>http://127.0.0.1:8000</code></td></tr>
+                <tr><th>VLLM_WORKSPACE</th><td><code>$HOME/.vllm</code></td></tr>
+                <tr><th>HF_TOKEN</th><td>Token HuggingFace (opcional)</td></tr>
+            </table>
+
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/03.01_setenv_vllm.sh" data-label="vllm">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.01_setenv_vllm.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/03.01_unsetenv_vllm.sh" data-label="vllm">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.01_unsetenv_vllm.sh</code></pre>
+                </div>
+            </div>
+
+            <h3>Uso</h3>
+<pre><code># Iniciar com Docker
+vllm-start
+
+# Parar
+vllm-stop
+
+# Ou via pip
+vllm-serve
+
+# Testar API
+curl http://127.0.0.1:8000/v1/models</code></pre>
+        </section>
+
+        <section>
+            <h2>Ollama <span class="flag" data-tool="ollama" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                Runner local de LLM leve e simples. Gerencia modelos automaticamente
+                com CLI intuitivo e suporte a multiplos modelos simultaneos.
+            </p>
+            <div class="links-grid">
+                <a href="https://ollama.com" target="_blank">&#x1F517; ollama.com</a>
+                <a href="https://github.com/ollama/ollama" target="_blank">&#x1F4BB; GitHub</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Porta</th><td>11434</td></tr>
+                <tr><th>Metodo</th><td>Script oficial</td></tr>
+                <tr><th>API</th><td>Nativa Ollama</td></tr>
+                <tr><th>Modelos Paralelos</th><td>2 (configuravel)</td></tr>
+                <tr><th>Dir. Modelos</th><td><code>$HOME/.ollama/models</code></td></tr>
+            </table>
+
+            <h3>Variaveis de Ambiente</h3>
+            <table class="info-table">
+                <tr><th>OLLAMA_HOST</th><td><code>http://127.0.0.1:11434</code></td></tr>
+                <tr><th>OLLAMA_MODELS</th><td><code>$HOME/.ollama/models</code></td></tr>
+                <tr><th>OLLAMA_KEEP_ALIVE</th><td><code>24h</code></td></tr>
+                <tr><th>OLLAMA_NUM_PARALLEL</th><td><code>4</code></td></tr>
+                <tr><th>OLLAMA_MAX_LOADED_MODELS</th><td><code>2</code></td></tr>
+            </table>
+
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/03.02_setenv_ollama.sh" data-label="ollama">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.02_setenv_ollama.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/03.02_unsetenv_ollama.sh" data-label="ollama">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.02_unsetenv_ollama.sh</code></pre>
+                </div>
+            </div>
+
+            <h3>Uso</h3>
+<pre><code># Listar modelos disponiveis
+ollama list
+
+# Baixar modelo
+ollama pull qwen2.5-coder:14b
+
+# Executar modelo
+ollama run llama3.1:8b
+
+# Listar modelos online
+curl http://127.0.0.1:11434/api/tags</code></pre>
+        </section>
+
+        <section>
+            <h2>llama.cpp <span class="flag" data-tool="llamacpp" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                Port C/C++ do Meta LLaMA. Leve, portavel e nativo em GGUF.
+                Inclui suite completa de ferramentas para inferencia, quantizacao e benchmarks.
+            </p>
+            <div class="links-grid">
+                <a href="https://github.com/ggml-org/llama.cpp" target="_blank">&#x1F4BB; GitHub</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Porta</th><td>8080</td></tr>
+                <tr><th>Metodo</th><td>Binario pre-compilado</td></tr>
+                <tr><th>API</th><td>OpenAI-compatible</td></tr>
+                <tr><th>Formato</th><td>GGUF (nativo)</td></tr>
+            </table>
+
+            <h3>Ferramentas Incluidas</h3>
+            <table class="info-table">
+                <tr><th>llama-server</th><td>Servidor API principal</td></tr>
+                <tr><th>llama-cli</th><td>CLI interativo</td></tr>
+                <tr><th>llama-bench</th><td>Benchmarking</td></tr>
+                <tr><th>llama-quantize</th><td>Quantizacao de modelos</td></tr>
+                <tr><th>llama-perplexity</th><td>Avaliacao de perplexidade</td></tr>
+                <tr><th>llama-embedding</th><td>Geracao de embeddings</td></tr>
+                <tr><th>llama-gguf-split</th><td>Divisao de arquivos GGUF</td></tr>
+            </table>
+
+            <h3>Variaveis de Ambiente</h3>
+            <table class="info-table">
+                <tr><th>LLAMA_CPP_HOME</th><td><code>$HOME/.local/lib/llama.cpp</code></td></tr>
+                <tr><th>LLAMA_SERVER_HOST</th><td><code>127.0.0.1</code></td></tr>
+                <tr><th>LLAMA_SERVER_PORT</th><td><code>8080</code></td></tr>
+            </table>
+
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/03.03_setenv_llamacpp.sh" data-label="llamacpp">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.03_setenv_llamacpp.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/03.03_unsetenv_llamacpp.sh" data-label="llamacpp">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.03_unsetenv_llamacpp.sh</code></pre>
+                </div>
+            </div>
+
+            <h3>Uso</h3>
+<pre><code># Iniciar servidor
+llama-server -m ./model.gguf
+
+# CLI interativo
+llama-cli -m ./model.gguf
+
+# Quantizar modelo
+llama-quantize ./model-f16.gguf ./model-q4_0.gguf Q4_0
+
+# Benchmark
+llama-bench -m ./model.gguf</code></pre>
+        </section>
+
+        <section>
+            <h2>LocalAI <span class="flag" data-tool="localai" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                Substituto drop-in para a API OpenAI. Suporta multiplos backends
+                (llama.cpp, GPT4ALL, whisper, Stable Diffusion) com interface web integrada.
+            </p>
+            <div class="links-grid">
+                <a href="https://localai.io" target="_blank">&#x1F517; localai.io</a>
+                <a href="https://github.com/mudler/LocalAI" target="_blank">&#x1F4BB; GitHub</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Porta</th><td>8080</td></tr>
+                <tr><th>Metodo</th><td>Docker (principal) / binario / script</td></tr>
+                <tr><th>Imagem</th><td><code>localai/localai:latest-gpu-nvidia-cuda-12</code></td></tr>
+                <tr><th>Container</th><td><code>local-ai</code> (restart: unless-stopped)</td></tr>
+                <tr><th>WebUI</th><td>Integrada na porta 8080</td></tr>
+            </table>
+
+            <h3>Variaveis de Ambiente</h3>
+            <table class="info-table">
+                <tr><th>LOCALAI_API_URL</th><td><code>http://127.0.0.1:8080</code></td></tr>
+                <tr><th>LOCALAI_MODELS</th><td><code>$HOME/.localai/models</code></td></tr>
+            </table>
+
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/03.04_setenv_localai.sh" data-label="localai">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.04_setenv_localai.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/03.04_unsetenv_localai.sh" data-label="localai">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.04_unsetenv_localai.sh</code></pre>
+                </div>
+            </div>
+
+            <h3>Uso</h3>
+<pre><code># Listar modelos
+curl http://127.0.0.1:8080/v1/models
+
+# Requisicao completions
+curl http://127.0.0.1:8080/v1/completions \
+  -d '{"model": "model-name", "prompt": "Hello"}'
+
+# Acessar WebUI
+# Abra http://127.0.0.1:8080 no navegador</code></pre>
+        </section>
+
+        <section>
+            <h2>Jan AI <span class="flag" data-tool="jan" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                Alternativa open-source ao ChatGPT com interface grafica desktop.
+                Funciona totalmente offline com gerenciamento de modelos pela GUI.
+            </p>
+            <div class="links-grid">
+                <a href="https://jan.ai" target="_blank">&#x1F517; jan.ai</a>
+                <a href="https://github.com/janhq/jan" target="_blank">&#x1F4BB; GitHub</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Porta</th><td>1337</td></tr>
+                <tr><th>Metodo</th><td>AppImage / .deb</td></tr>
+                <tr><th>API</th><td>OpenAI-compatible</td></tr>
+                <tr><th>Interface</th><td>Desktop App</td></tr>
+                <tr><th>Arquitetura</th><td>x86_64 apenas</td></tr>
+            </table>
+
+            <h3>Variaveis de Ambiente</h3>
+            <table class="info-table">
+                <tr><th>JAN_HOME</th><td><code>$HOME/.jan</code></td></tr>
+                <tr><th>JAN_API_URL</th><td><code>http://127.0.0.1:1337</code></td></tr>
+            </table>
+
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/03.05_setenv_jan.sh" data-label="jan">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.05_setenv_jan.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/03.05_unsetenv_jan.sh" data-label="jan">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.05_unsetenv_jan.sh</code></pre>
+                </div>
+            </div>
+
+            <h3>Uso</h3>
+<pre><code># Iniciar aplicacao desktop
+jan
+
+# Modelos sao baixados via Hub na GUI
+# Dados armazenados em ~/.jan/models/</code></pre>
+        </section>
+
+        <section>
+            <h2>LM Studio <span class="flag" data-tool="lmstudio" style="font-size:0.7em">Verificando...</span></h2>
+            <p>
+                Aplicacao desktop e CLI headless para descobrir, baixar e executar LLMs locais.
+                Modo headless ideal para servidores sem interface grafica.
+            </p>
+            <div class="links-grid">
+                <a href="https://lmstudio.ai" target="_blank">&#x1F517; lmstudio.ai</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Porta</th><td>1234</td></tr>
+                <tr><th>Metodo</th><td>Script oficial (headless)</td></tr>
+                <tr><th>API</th><td>OpenAI-compatible (/v1)</td></tr>
+                <tr><th>CLI</th><td><code>lms</code> / <code>llmster</code></td></tr>
+                <tr><th>Arquitetura</th><td>Daemon-based</td></tr>
+            </table>
+
+            <h3>Variaveis de Ambiente</h3>
+            <table class="info-table">
+                <tr><th>LM_STUDIO_HOME</th><td><code>$HOME/.lmstudio</code></td></tr>
+                <tr><th>LM_STUDIO_API_URL</th><td><code>http://127.0.0.1:1234/v1</code></td></tr>
+            </table>
+
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/03.06_setenv_lmstudio.sh" data-label="lmstudio">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.06_setenv_lmstudio.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/03.06_unsetenv_lmstudio.sh" data-label="lmstudio">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/03.06_unsetenv_lmstudio.sh</code></pre>
+                </div>
+            </div>
+
+            <h3>Uso</h3>
+<pre><code># Listar modelos locais
+lms ls
+
+# Baixar modelo
+lms get qwen2.5-coder-14b
+
+# Iniciar daemon
+lms daemon up
+
+# Iniciar servidor API
+lms server start
+
+# Parar servidor
+lms server stop</code></pre>
+        </section>
+
+        <section>
+            <h2>Instalacao</h2>
+            <p>Execute o menu interativo da Fase 03:</p>
+<pre><code>./scripts/03.00_LlmServers.sh</code></pre>
+            <p>Ou instale individualmente:</p>
+<pre><code># Exemplo: instalar Ollama
+./scripts/03.02_LlmOllama.sh
+
+# Exemplo: instalar vLLM
+./scripts/03.01_LlmvLLM.sh</code></pre>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            OfficeAI &mdash; Sistema de Instalacao Modular
+        </div>
+    </footer>
+    <script src="env-executor.js"></script>
+    <script src="status-checker.js"></script>
+</body>
+</html>

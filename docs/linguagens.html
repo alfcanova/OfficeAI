@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linguagens - OfficeAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand">OfficeAI</a>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="system.html">Sistema Base</a></li>
+                <li><a href="linguagens.html" class="active">Linguagens</a></li>
+                <li><a href="clis.html">CLIs</a></li>
+                <li><a href="llms.html">LLMs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a> / Linguagens
+        </div>
+
+        <header>
+            <h1>&#x1F4BB; Linguagens de Programacao <span class="flag" data-counter="true">Verificando...</span></h1>
+            <p>Ambientes de desenvolvimento isolados para 5 linguagens populares.</p>
+        </header>
+
+        <section>
+            <h2>Visao Geral</h2>
+            <p>
+                O OfficeAI instala cada linguagem de forma isolada dentro do diretorio do projeto,
+                evitando conflitos com o sistema operacional. Scripts de ambiente sao gerados
+                automaticamente para ativar/desativar o PATH e variaveis de ambiente.
+            </p>
+        </section>
+
+        <section>
+            <h2>Tabela Comparativa</h2>
+            <table class="info-table">
+                <tr>
+                    <th>Linguagem</th>
+                    <th>Versao</th>
+                    <th>Metodo</th>
+                    <th>Gerenciador</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td><strong>Python + uv</strong></td>
+                    <td>sistema</td>
+                    <td>apt</td>
+                    <td>uv</td>
+                    <td><span class="flag" data-tool="python" style="font-size:0.8em">Verificando...</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Node.js LTS</strong></td>
+                    <td>LTS</td>
+                    <td>Binario oficial</td>
+                    <td>npm / yarn / pnpm / bun</td>
+                    <td><span class="flag" data-tool="nodejs" style="font-size:0.8em">Verificando...</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Rust + Cargo</strong></td>
+                    <td>latest</td>
+                    <td>rustup</td>
+                    <td>cargo</td>
+                    <td><span class="flag" data-tool="rust" style="font-size:0.8em">Verificando...</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Go</strong></td>
+                    <td>1.22.5</td>
+                    <td>Binario oficial</td>
+                    <td>go mod</td>
+                    <td><span class="flag" data-tool="go" style="font-size:0.8em">Verificando...</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Zig</strong></td>
+                    <td>0.13.0</td>
+                    <td>Binario oficial</td>
+                    <td>integrado</td>
+                    <td><span class="flag" data-tool="zig" style="font-size:0.8em">Verificando...</span></td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- PYTHON -->
+        <section id="python">
+            <h2>&#x1F40D; Python + uv</h2>
+            <p>
+                Linguagem interpretada de alto nivel + gerenciador de pacotes ultra-rapido.
+                Python e instalado via <code>apt</code> para compatibilidade com o sistema.
+                <strong>uv</strong> substitui pip, pip-tools e virtualenv com velocidade excepcional.
+            </p>
+            <div class="links-grid">
+                <a href="https://www.python.org/" target="_blank">&#x1F517; python.org</a>
+                <a href="https://docs.astral.sh/uv/" target="_blank">&#x1F517; uv - Astral</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Metodo</th><td><span class="badge required">apt (sistema)</span></td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>uv</li><li>uvx</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/00_setenv_SystemBase.sh" data-label="uv">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/00_setenv_SystemBase.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/00_unsetenv_SystemBase.sh" data-label="uv">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/00_unsetenv_SystemBase.sh</code></pre>
+                </div>
+            </div>
+            <h3>Uso</h3>
+<pre><code>uv venv                        # Criar ambiente virtual
+uv pip install requests        # Instalar pacotes
+uvx ruff check .               # Executar ferramenta</code></pre>
+        </section>
+
+        <!-- NODE.JS -->
+        <section id="nodejs">
+            <h2>&#x1F7E2; Node.js LTS</h2>
+            <p>
+                Runtime JavaScript para desenvolvimento backend. Instalacao isolada com npm, yarn,
+                pnpm e bun. Inclui ferramentas globais: eslint, prettier, typescript, ts-node, nodemon.
+            </p>
+            <div class="links-grid">
+                <a href="https://nodejs.org/" target="_blank">&#x1F517; nodejs.org</a>
+                <a href="https://docs.npmjs.com/" target="_blank">&#x1F517; npm docs</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Metodo</th><td><span class="badge required">Binario oficial</span></td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>node</li><li>npm</li><li>npx</li><li>yarn</li><li>pnpm</li><li>bun</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/01.04_setenv_nodejs.sh" data-label="node">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.04_setenv_nodejs.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/01.04_unsetenv_nodejs.sh" data-label="node">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.04_unsetenv_nodejs.sh</code></pre>
+                </div>
+            </div>
+            <h3>Gerenciadores</h3>
+            <table class="info-table">
+                <tr><th>npm</th><td>Gerenciador padrao do Node.js</td></tr>
+                <tr><th>yarn</th><td>Gerenciador rapido e seguro da Meta</td></tr>
+                <tr><th>pnpm</th><td>Gerenciador eficiente com hard links</td></tr>
+                <tr><th>bun</th><td>Runtime + bundler + gerenciador ultrarapido</td></tr>
+            </table>
+            <h3>Uso</h3>
+<pre><code>npm init -y                     # Criar projeto
+npm install express             # Instalar dependencias
+yarn add lodash                 # Adicionar pacote
+pnpm add -D typescript          # Adicionar devDep
+bun install                     # Instalar com bun</code></pre>
+        </section>
+
+        <!-- RUST -->
+        <section id="rust">
+            <h2>&#x1F535; Rust + Cargo</h2>
+            <p>
+                Linguagem de sistemas com seguranca de memoria e o gerenciador Cargo.
+                Inclui 5 ferramentas pre-instaladas: cargo-edit, cargo-watch, cargo-nextest,
+                cargo-audit e cargo-deny.
+            </p>
+            <div class="links-grid">
+                <a href="https://www.rust-lang.org/" target="_blank">&#x1F517; rust-lang.org</a>
+                <a href="https://doc.rust-lang.org/cargo/" target="_blank">&#x1F517; Cargo Book</a>
+                <a href="https://rustup.rs/" target="_blank">&#x1F517; rustup.rs</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Metodo</th><td><span class="badge required">rustup</span></td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>rustc</li><li>cargo</li><li>rustup</li><li>rustfmt</li><li>clippy-driver</li><li>rust-analyzer</li></span></td></tr>
+                <tr><th>Variaveis</th><td><code>CARGO_HOME</code>, <code>RUSTUP_HOME</code></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/01.01_setenv_rust.sh" data-label="rust">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.01_setenv_rust.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/01.01_unsetenv_rust.sh" data-label="rust">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.01_unsetenv_rust.sh</code></pre>
+                </div>
+            </div>
+            <h3>Cargo Tools</h3>
+            <table class="info-table">
+                <tr><th>cargo-edit</th><td>Gerenciamento de dependencias via CLI</td></tr>
+                <tr><th>cargo-watch</th><td>Recompilacao automatica ao alterar arquivos</td></tr>
+                <tr><th>cargo-nextest</th><td>Testes paralelos</td></tr>
+                <tr><th>cargo-audit</th><td>Verificacao de vulnerabilidades</td></tr>
+                <tr><th>cargo-deny</th><td>Gerenciamento de licencas</td></tr>
+            </table>
+            <h3>Uso</h3>
+<pre><code>cargo new meu-projeto           # Criar projeto
+cargo run                       # Executar
+cargo test                      # Testar
+cargo clippy                    # Lint
+cargo fmt                       # Formatrar</code></pre>
+        </section>
+
+        <!-- GO -->
+        <section id="go">
+            <h2>&#x1F4A0; Go <span class="flag" data-tool="go" style="font-size:0.8em">Verificando...</span></h2>
+            <p>
+                Linguagem compilada para servicos de alta performance e ferramentas CLI.
+                Inclui gopls (language server), delve (debugger), staticcheck e golangci-lint.
+            </p>
+            <div class="links-grid">
+                <a href="https://go.dev/" target="_blank">&#x1F517; go.dev</a>
+                <a href="https://pkg.go.dev/" target="_blank">&#x1F517; pkg.go.dev</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Versao</th><td>1.22.5</td></tr>
+                <tr><th>Metodo</th><td><span class="badge required">Binario oficial</span></td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>go</li><li>gofmt</li><li>gopls</li><li>dlv</li><li>staticcheck</li><li>golangci-lint</li></span></td></tr>
+                <tr><th>Variaveis</th><td><code>GOPATH</code> = <code>$HOME/go</code></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/01.03_setenv_go.sh" data-label="go">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.03_setenv_go.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/01.03_unsetenv_go.sh" data-label="go">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.03_unsetenv_go.sh</code></pre>
+                </div>
+            </div>
+            <h3>Uso</h3>
+<pre><code>go mod init github.com/user/proj  # Iniciar modulo
+go run main.go                     # Executar
+go build -o meu-app                # Compilar
+go test ./...                      # Testar
+go mod tidy                        # Limpar deps</code></pre>
+        </section>
+
+        <!-- ZIG -->
+        <section id="zig">
+            <h2>&#x26A1; Zig</h2>
+            <p>
+                Linguagem de sistemas com compilador integrado que tambem funciona como
+                gerenciador de pacotes e build system. Elimina a necessidade de CMake ou Make.
+                Tambem e amplamente usada para cross-compilacao de projetos C/C++ existentes.
+            </p>
+            <div class="links-grid">
+                <a href="https://ziglang.org/" target="_blank">&#x1F517; ziglang.org</a>
+                <a href="https://ziglang.org/documentation/" target="_blank">&#x1F517; Zig Docs</a>
+            </div>
+            <table class="info-table">
+                <tr><th>Versao</th><td>0.13.0</td></tr>
+                <tr><th>Metodo</th><td><span class="badge required">Binario oficial</span></td></tr>
+                <tr><th>Executaveis</th><td><span class="exec-list"><li>zig</li></span></td></tr>
+            </table>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/01.02_setenv_zig.sh" data-label="zig">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.02_setenv_zig.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/01.02_unsetenv_zig.sh" data-label="zig">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.02_unsetenv_zig.sh</code></pre>
+                </div>
+            </div>
+            <h3>Uso</h3>
+<pre><code>zig build-exe main.zig          # Compilar executavel
+zig run main.zig                 # Executar direto
+zig init                         # Inicializar projeto
+zig build                        # Build com build.zig
+zig test src/main.zig            # Testar</code></pre>
+        </section>
+
+        <section>
+            <h2>Instalacao</h2>
+            <p>Execute o menu interativo da Fase 01:</p>
+<pre><code>./scripts/01.00_Languages.sh</code></pre>
+            <p>Ou instale individualmente:</p>
+<pre><code># Exemplo: instalar Rust
+./scripts/01.01_LanguageRust.sh
+
+# Exemplo: instalar Node.js com gerenciadores
+./scripts/01.04_LanguageNodeJS.sh
+
+# Exemplo: instalar Zig
+./scripts/01.02_LanguageZig.sh</code></pre>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            OfficeAI &mdash; Sistema de Instalacao Modular
+        </div>
+    </footer>
+    <script src="env-executor.js"></script>
+    <script src="status-checker.js"></script>
+</body>
+</html>

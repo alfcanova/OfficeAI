@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Base - OfficeAI</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .flag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .flag.available {
+            background: rgba(74, 222, 128, 0.12);
+            color: #4ade80;
+            border: 1px solid rgba(74, 222, 128, 0.25);
+        }
+        .flag.unavailable {
+            background: rgba(248, 113, 113, 0.12);
+            color: #f87171;
+            border: 1px solid rgba(248, 113, 113, 0.25);
+        }
+        .flag::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+        .tool-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 640px) {
+            .tool-grid { grid-template-columns: 1fr; }
+        }
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+        }
+        .tool-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .tool-card p {
+            color: var(--text-dim);
+            font-size: 0.88rem;
+            margin-bottom: 0.6rem;
+        }
+        .tool-card .pkg {
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+            font-size: 0.82rem;
+            color: var(--accent);
+        }
+        .check-note {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.88rem;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand">OfficeAI</a>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="system.html" class="active">Sistema Base</a></li>
+                <li><a href="linguagens.html">Linguagens</a></li>
+                <li><a href="clis.html">CLIs</a></li>
+                <li><a href="llms.html">LLMs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a> / Sistema Base
+        </div>
+
+        <header>
+            <h1>&#x1F527; Sistema Base</h1>
+            <p>Compiladores LLVM/Clang, GCC e ferramentas de build para desenvolvimento nativo.</p>
+        </header>
+
+        <div class="links-grid">
+            <a href="https://www.debian.org/releases/trixie/" target="_blank">&#x1F517; Debian 13 (Trixie)</a>
+            <a href="https://packages.debian.org/trixie/gcc" target="_blank">&#x1F517; Pacotes Debian</a>
+            <a href="https://clang.llvm.org/" target="_blank">&#x1F517; LLVM/Clang</a>
+        </div>
+
+        <section>
+            <h2>Descricao</h2>
+            <p>
+                O <strong>Sistema Base</strong> fornece os compiladores e ferramentas de build
+                essenciais para desenvolvimento C, C++ e Rust. Todos os pacotes sao instalados
+                individualmente via <code>apt</code> (Debian/Ubuntu), sem uso de meta-packages
+                como <code>build-essential</code>.
+            </p>
+            <br>
+            <p>
+                Os compiladores e ferramentas sao instalados nos caminhos padrao do sistema
+                (<code>/usr/bin/</code>), nao dentro do diretorio OfficeAI, pois sao
+                compartilhados por todo o sistema.
+            </p>
+        </section>
+
+        <section>
+            <h2>Compiladores C/C++</h2>
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h4>GCC <span class="flag available">Disponivel</span></h4>
+                    <p>GNU Compiler Collection - compilador C/C++ padrao do Linux.</p>
+                    <div class="pkg">Pacote: <code>gcc</code></div>
+                </div>
+                <div class="tool-card">
+                    <h4>G++ <span class="flag available">Disponivel</span></h4>
+                    <p>Compilador C++ do GNU.</p>
+                    <div class="pkg">Pacote: <code>g++</code></div>
+                </div>
+                <div class="tool-card">
+                    <h4>Clang <span class="flag available">Disponivel</span></h4>
+                    <p>Compilador LLVM para C/C++/ObjC. Alternativa moderna ao GCC.</p>
+                    <div class="pkg">Pacote: <code>clang</code></div>
+                </div>
+                <div class="tool-card">
+                    <h4>Clangd <span class="flag available">Disponivel</span></h4>
+                    <p>Language server para C/C++ (IDE support, completion, diagnostics).</p>
+                    <div class="pkg">Pacote: <code>clangd</code></div>
+                </div>
+                <div class="tool-card">
+                    <h4>LLVM <span class="flag available">Disponivel</span></h4>
+                    <p>Coletanea de ferramentas e bibliotecas para compiladores.</p>
+                    <div class="pkg">Pacote: <code>llvm</code></div>
+                </div>
+                <div class="tool-card">
+                    <h4>LLD <span class="flag available">Disponivel</span></h4>
+                    <p>Linkador LLVM - mais rapido que ld do GNU.</p>
+                    <div class="pkg">Pacote: <code>lld</code></div>
+                </div>
+                <div class="tool-card">
+                    <h4>LLDB <span class="flag available">Disponivel</span></h4>
+                    <p>Debugger LLVM - alternativa ao GDB.</p>
+                    <div class="pkg">Pacote: <code>lldb</code></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Build Tools</h2>
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h4>Make <span class="flag available">Disponivel</span></h4>
+                    <p>Build tool classico baseado em Makefiles.</p>
+                    <div class="pkg">Pacote: <code>make</code></div>
+                </div>
+                <div class="tool-card">
+                    <h4>CMake <span class="flag available">Disponivel</span></h4>
+                    <p>Gerador de sistemas de build multiplataforma.</p>
+                    <div class="pkg">Pacote: <code>cmake</code></div>
+                </div>
+                <div class="tool-card">
+                    <h4>Ninja <span class="flag available">Disponivel</span></h4>
+                    <p>Sistema de build pequeno e rapido. Usado pelo CMake e Rust.</p>
+                    <div class="pkg">Pacote: <code>ninja-build</code></div>
+                </div>
+                <div class="tool-card">
+                    <h4>Meson <span class="flag available">Disponivel</span></h4>
+                    <p>Sistema de build moderno e simples. Usado pelo GNOME, systemd.</p>
+                    <div class="pkg">Pacote: <code>meson</code></div>
+                </div>
+                <div class="tool-card">
+                    <h4>pkg-config <span class="flag available">Disponivel</span></h4>
+                    <p>Descobre flags de compilacao e linking de bibliotecas.</p>
+                    <div class="pkg">Pacote: <code>pkg-config</code></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pacotes Individuais</h2>
+            <p>
+                O OfficeAI instala pacotes individuais por distribuicao, sem depender de
+                meta-packages. Abaixo a tabela de equivalencia:
+            </p>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>Generico</th>
+                        <th>Debian/Ubuntu (apt)</th>
+                        <th>Fedora/RHEL (dnf)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>gcc</td><td><code>gcc</code></td><td><code>gcc gcc-c++</code></td></tr>
+                    <tr><td>clang</td><td><code>clang</code></td><td><code>clang</code></td></tr>
+                    <tr><td>clangd</td><td><code>clangd</code></td><td><code>clang-tools-extra</code></td></tr>
+                    <tr><td>llvm</td><td><code>llvm</code></td><td><code>llvm llvm-devel</code></td></tr>
+                    <tr><td>lld</td><td><code>lld</code></td><td><code>lld lld-devel</code></td></tr>
+                    <tr><td>lldb</td><td><code>lldb</code></td><td><code>lldb lld-devel</code></td></tr>
+                    <tr><td>make</td><td><code>make</code></td><td><code>make</code></td></tr>
+                    <tr><td>cmake</td><td><code>cmake</code></td><td><code>cmake</code></td></tr>
+                    <tr><td>ninja</td><td><code>ninja-build</code></td><td><code>ninja-build</code></td></tr>
+                    <tr><td>meson</td><td><code>meson</code></td><td><code>meson</code></td></tr>
+                    <tr><td>pkgconfig</td><td><code>pkg-config</code></td><td><code>pkgconf-pkg-config</code></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Instalacao</h2>
+<pre><code># Pelo menu interativo
+./scripts/00_InstallSystemBase.sh
+# Selecionar opcao 1 (Compiladores) e/ou 2 (Build Tools)
+
+# Ou instalar individualmente via apt
+sudo apt-get install -y gcc g++ clang clangd llvm lld lldb
+sudo apt-get install -y make cmake ninja-build meson pkg-config</code></pre>
+        </section>
+
+        <section>
+            <h2>Ambiente</h2>
+            <p>
+                Estes pacotes sao instalados nos caminhos padrao do sistema
+                (<code>/usr/bin/</code>), portanto <strong>nao precisam</strong> de
+                arquivos env/unenv. Ja estao disponiveis no PATH do sistema.
+            </p>
+            <table class="info-table">
+                <tr>
+                    <th>Caminho</th>
+                    <td><code>/usr/bin/</code> (padrao do sistema)</td>
+                </tr>
+                <tr>
+                    <th>env/unenv</th>
+                    <td>Nao necessario</td>
+                </tr>
+            </table>
+        </section>
+
+        <div class="check-note">
+            Para verificar se uma ferramenta esta instalada: <code>comando --version</code>
+            &mdash; Ex: <code>gcc --version</code>, <code>clang --version</code>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            OfficeAI &mdash; Sistema de Instalacao Modular
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust + Cargo - OfficeAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand">OfficeAI</a>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="system.html">Sistema Base</a></li>
+                <li><a href="linguagens.html" class="active">Linguagens</a></li>
+                <li><a href="clis.html">CLIs</a></li>
+                <li><a href="llms.html">LLMs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a> / Rust + Cargo
+        </div>
+
+        <header>
+            <h1>&#x1F535; Rust + Cargo <span class="flag available">Disponivel</span></h1>
+            <p>Linguagem de sistemas com seguranca de memoria e gerenciador de pacotes Cargo.</p>
+        </header>
+
+        <div class="links-grid">
+            <a href="https://www.rust-lang.org/" target="_blank">&#x1F517; rust-lang.org</a>
+            <a href="https://doc.rust-lang.org/cargo/" target="_blank">&#x1F517; Cargo Book</a>
+            <a href="https://rustup.rs/" target="_blank">&#x1F517; rustup.rs</a>
+        </div>
+
+        <section>
+            <h2>Descricao</h2>
+            <p>
+                <strong>Rust</strong> e instalado via <code>rustup</code>, o instalador oficial,
+                em um diretorio isolado dentro do projeto. O <code>CARGO_HOME</code> e
+                <code>RUSTUP_HOME</code> apontam para o diretorio de instalacao local.
+            </p>
+            <br>
+            <p>
+                <strong>Cargo</strong> e o gerenciador de pacotes e sistema de build do Rust,
+                incluindo gerenciamento de dependencias, compilacao, testes e publicacao de pacotes.
+            </p>
+        </section>
+
+        <section>
+            <h2>Informacoes de Instalacao</h2>
+            <table class="info-table">
+                <tr>
+                    <th>Metodo</th>
+                    <td><span class="badge required">rustup</span></td>
+                </tr>
+                <tr>
+                    <th>Diretorio</th>
+                    <td>$OFFICEAI_ROOT/lib/rust/</td>
+                </tr>
+                <tr>
+                    <th>Executaveis</th>
+                    <td>
+                        <ul class="exec-list">
+                            <li>rustc</li>
+                            <li>cargo</li>
+                            <li>rustup</li>
+                            <li>rustfmt</li>
+                            <li>clippy-driver</li>
+                            <li>rust-analyzer</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Ambiente</h2>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/01.01_setenv_rust.sh" data-label="Rust">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.01_setenv_rust.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/01.01_unsetenv_rust.sh" data-label="Rust">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.01_unsetenv_rust.sh</code></pre>
+                </div>
+            </div>
+
+            <h3>Variaveis de Ambiente</h3>
+            <table class="info-table">
+                <tr>
+                    <th>PATH</th>
+                    <td>Adiciona <code>$OFFICEAI_ROOT/lib/rust/bin/</code></td>
+                </tr>
+                <tr>
+                    <th>CARGO_HOME</th>
+                    <td><code>$OFFICEAI_ROOT/lib/rust</code></td>
+                </tr>
+                <tr>
+                    <th>RUSTUP_HOME</th>
+                    <td><code>$OFFICEAI_ROOT/lib/rust</code></td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Cargo Tools Instaladas</h2>
+            <table class="info-table">
+                <tr><th>cargo-edit</th><td>Adicionar/remover dependencias via CLI</td></tr>
+                <tr><th>cargo-watch</th><td>Recompilar automaticamente ao alterar arquivos</td></tr>
+                <tr><th>cargo-nextest</th><td>Executor de testes paralelo e rapido</td></tr>
+                <tr><th>cargo-audit</th><td>Verificar vulnerabilidades em dependencias</td></tr>
+                <tr><th>cargo-deny</th><td>Gerenciar licencas e dependencias proibidas</td></tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Uso</h2>
+<pre><code># Criar novo projeto
+cargo new meu-projeto
+cd meu-projeto
+
+# Compilar e executar
+cargo run
+
+# Rodar testes
+cargo test
+
+# Verificar codigo (lint)
+cargo clippy
+
+# Formatar codigo
+cargo fmt
+
+# Instalar crate
+cargo install ripgrep</code></pre>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            OfficeAI &mdash; Sistema de Instalacao Modular
+        </div>
+    </footer>
+    <script src="env-executor.js"></script>
+</body>
+</html>

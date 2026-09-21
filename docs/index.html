@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OfficeAI - Documentacao</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand">OfficeAI</a>
+            <ul class="links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="system.html">Sistema Base</a></li>
+                <li><a href="linguagens.html">Linguagens</a></li>
+                <li><a href="clis.html">CLIs</a></li>
+                <li><a href="llms.html">LLMs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>OfficeAI</h1>
+            <p>Sistema modular de instalacao e gerenciamento de ferramentas de desenvolvimento.</p>
+        </header>
+
+        <section>
+            <h2>O que e o OfficeAI?</h2>
+            <p>
+                O OfficeAI e um conjunto de scripts bash para instalacao e gerenciamento de ferramentas
+                de desenvolvimento em ambiente Linux. Cada ferramenta e instalada de forma isolada
+                dentro do diretorio do projeto, evitando conflitos com o sistema operacional.
+            </p>
+            <br>
+            <p>
+                O sistema gera automaticamente arquivos de ambiente (<code>env</code> / <code>unenv</code>)
+                para cada linguagem instalada, permitindo ativar e desativar facilmente o PATH
+                e as variaveis de ambiente necessarias.
+            </p>
+        </section>
+
+        <section>
+            <h2>Ferramentas Disponiveis</h2>
+            <div class="cards">
+                <a href="system.html" class="card">
+                    <div class="icon">&#x1F527;</div>
+                    <h3>Sistema Base</h3>
+                    <p>Compiladores LLVM/Clang, GCC e build tools.</p>
+                    <span class="version">via apt</span>
+                </a>
+                <a href="linguagens.html" class="card">
+                    <div class="icon">&#x1F4BB;</div>
+                    <h3>Linguagens</h3>
+                    <p>Python, Node.js, Rust, Go e Zig com ambientes isolados.</p>
+                    <span class="version">5 disponiveis</span>
+                </a>
+                <a href="clis.html" class="card">
+                    <div class="icon">&#x1F916;</div>
+                    <h3>CLIs de IA</h3>
+                    <p>10 ferramentas: OpenCode, Aider, Claude, Copilot e mais.</p>
+                    <span class="version">10 disponiveis</span>
+                </a>
+                <a href="llms.html" class="card">
+                    <div class="icon">&#x1F9E0;</div>
+                    <h3>Servidores LLM</h3>
+                    <p>vLLM, Ollama, llama.cpp, LocalAI, Jan, LM Studio.</p>
+                    <span class="version">6 disponiveis</span>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Estrutura de Diretorios</h2>
+            <div class="tree">
+                <details open>
+                    <summary><strong>OfficeAI/</strong></summary>
+                    <div class="tree-children">
+                        <details open>
+                            <summary><strong>bin/</strong> <span class="tree-desc">Executaveis (symlinks) + scripts setenv/unsetenv</span></summary>
+                        </details>
+                        <details>
+                            <summary><strong>docs/</strong> <span class="tree-desc">Esta documentacao</span></summary>
+                        </details>
+                        <details>
+                            <summary><strong>etc/</strong> <span class="tree-desc">Ativacao do ambiente (00_envGeneral.sh)</span></summary>
+                        </details>
+                        <details open>
+                            <summary><strong>lib/</strong> <span class="tree-desc">Runtimes instalados + bibliotecas bash</span></summary>
+                            <div class="tree-children">
+                                <details>
+                                    <summary><strong>languages/</strong> <span class="tree-desc">Linguagens</span></summary>
+                                    <div class="tree-children">
+                                        <span class="tree-item">go/</span>
+                                        <span class="tree-item">node/</span>
+                                        <span class="tree-item">rust/</span>
+                                        <span class="tree-item">uv/</span>
+                                        <span class="tree-item">zig/</span>
+                                    </div>
+                                </details>
+                                <details>
+                                    <summary><strong>CLIs e servidores LLM</strong> <span class="tree-desc">cada tool em lib/&lt;tool&gt;</span></summary>
+                                    <div class="tree-children">
+                                        <span class="tree-item">aider/</span>
+                                        <span class="tree-item">claude/</span>
+                                        <span class="tree-item">codex/</span>
+                                        <span class="tree-item">ollama/</span>
+                                        <span class="tree-item">vllm/</span>
+                                        <span class="tree-item">jan/</span>
+                                        <span class="tree-item">llamacpp/</span>
+                                    </div>
+                                </details>
+                                <span class="tree-item">colors.sh, log.sh, prefix.sh, ...</span>
+                            </div>
+                        </details>
+                        <details>
+                            <summary><strong>logs/</strong> <span class="tree-desc">Logs de instalacao</span></summary>
+                        </details>
+                        <details open>
+                            <summary><strong>share/</strong> <span class="tree-desc">Dados persistentes (modelos, docs)</span></summary>
+                        </details>
+                        <details open>
+                            <summary><strong>var/</strong> <span class="tree-desc">HOME virtual + estado do ambiente</span></summary>
+                            <div class="tree-children">
+                                <span class="tree-item">home/ (HOME virtual: .config, .cache, .local)</span>
+                            </div>
+                        </details>
+                        <details open>
+                            <summary><strong>scripts/</strong> <span class="tree-desc">Instaladores + hubs de menu</span></summary>
+                            <div class="tree-children">
+                                <span class="tree-item">00_SystemBase.sh</span>
+                                <span class="tree-item">01.00_Languages.sh</span>
+                                <span class="tree-item">02.00_CLIs.sh</span>
+                                <span class="tree-item">03.00_LlmServers.sh</span>
+                                <span class="tree-item">10_migrate_layout.sh</span>
+                            </div>
+                        </details>
+                        <span class="tree-item">README.md</span>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section>
+            <h2>Como Funciona</h2>
+
+            <h3>1. Instalacao</h3>
+            <pre><code>./scripts/00_SystemBase.sh</code></pre>
+            <p>Executa o script de instalacao com menu interativo. Tudo e instalado dentro da pasta OfficeAI (lib/ + bin/), nada escapa.</p>
+
+            <h3>2. Ativar Ambiente</h3>
+            <pre><code>source $OFFICEAI_ROOT/etc/00_envGeneral.sh</code></pre>
+            <p>Adiciona ao PATH todos os executaveis das ferramentas instaladas no OfficeAI.</p>
+
+            <h3>3. Desativar Ambiente</h3>
+            <pre><code>source $OFFICEAI_ROOT/etc/00_unenvGeneral.sh</code></pre>
+            <p>Remove do PATH todos os executaveis e desfaz as variaveis de ambiente.</p>
+
+            <h3>4. Ativar/Desativar Individualmente</h3>
+            <pre><code># Ativar apenas Rust
+source $OFFICEAI_ROOT/bin/01.01_setenv_rust.sh
+
+# Desativar apenas Rust
+source $OFFICEAI_ROOT/bin/01.01_unsetenv_rust.sh</code></pre>
+        </section>
+
+        <section>
+            <h2>Links Uteis</h2>
+            <div class="links-grid">
+                <a href="https://github.com/anomalyco/opencode" target="_blank">&#x1F4BB; GitHub</a>
+                <a href="https://bash-hackers.org/wiki/syntax/keywords" target="_blank">&#x1F4D6; Bash Reference</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            OfficeAI &mdash; Sistema de Instalacao Modular
+        </div>
+    </footer>
+    <script src="status-checker.js"></script>
+</body>
+</html>

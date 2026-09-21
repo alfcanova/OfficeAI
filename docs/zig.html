@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zig - OfficeAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand">OfficeAI</a>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="system.html">Sistema Base</a></li>
+                <li><a href="linguagens.html" class="active">Linguagens</a></li>
+                <li><a href="clis.html">CLIs</a></li>
+                <li><a href="llms.html">LLMs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a> / Zig
+        </div>
+
+        <header>
+            <h1>&#x26A1; Zig <span class="flag available">Disponivel</span></h1>
+            <p>Linguagem de sistemas com compilador integrado e gerenciador de pacotes embutido.</p>
+        </header>
+
+        <div class="links-grid">
+            <a href="https://ziglang.org/" target="_blank">&#x1F517; ziglang.org</a>
+            <a href="https://ziglang.org/documentation/" target="_blank">&#x1F517; Zig Docs</a>
+            <a href="https://zigtools.org/" target="_blank">&#x1F517; Zig Tools</a>
+        </div>
+
+        <section>
+            <h2>Descricao</h2>
+            <p>
+                <strong>Zig</strong> e uma linguagem de sistemas projetada para ser mais
+                robusta e previsivel que C/C++. Seu compilador e tambem um gerenciador de
+                pacotes e build system, eliminando a necessidade de ferramentas externas como CMake ou Make.
+            </p>
+            <br>
+            <p>
+                Zig e amplamente utilizado para compilar projetos C/C++ existentes e como
+                ferramenta de build para outros projetos que precisam de compilacao nativa.
+            </p>
+        </section>
+
+        <section>
+            <h2>Informacoes de Instalacao</h2>
+            <table class="info-table">
+                <tr>
+                    <th>Versao</th>
+                    <td>0.13.0</td>
+                </tr>
+                <tr>
+                    <th>Metodo</th>
+                    <td><span class="badge required">Binario oficial</span></td>
+                </tr>
+                <tr>
+                    <th>Diretorio</th>
+                    <td>$OFFICEAI_ROOT/lib/zig/</td>
+                </tr>
+                <tr>
+                    <th>Executaveis</th>
+                    <td>
+                        <ul class="exec-list">
+                            <li>zig</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Ambiente</h2>
+            <div class="env-block">
+                <div class="env-item activate" data-cmd="source $OFFICEAI_ROOT/bin/01.02_setenv_zig.sh" data-label="Zig">
+                    <h4>&#x2705; Ativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.02_setenv_zig.sh</code></pre>
+                </div>
+                <div class="env-item deactivate" data-cmd="source $OFFICEAI_ROOT/bin/01.02_unsetenv_zig.sh" data-label="Zig">
+                    <h4>&#x274C; Desativar <span class="copy-hint">Clique para executar</span></h4>
+<pre><code>source $OFFICEAI_ROOT/bin/01.02_unsetenv_zig.sh</code></pre>
+                </div>
+            </div>
+
+            <h3>Variavel de Ambiente</h3>
+            <table class="info-table">
+                <tr>
+                    <th>PATH</th>
+                    <td>Adiciona <code>$OFFICEAI_ROOT/lib/zig/</code></td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Uso</h2>
+<pre><code># Compilar projeto
+zig build-exe main.zig
+
+# Executar
+zig run main.zig
+
+# Compilar para C (cross-compile)
+zig build-lib mylib.zig -target aarch64-linux-gnu
+
+# Inicializar build system
+zig init
+
+# Rodar build
+zig build
+
+# Testar
+zig test src/main.zig</code></pre>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            OfficeAI &mdash; Sistema de Instalacao Modular
+        </div>
+    </footer>
+    <script src="env-executor.js"></script>
+</body>
+</html>

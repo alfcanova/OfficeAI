@@ -1,7 +1,8 @@
 # ============================================================================
 # OfficeAI - .gitignore
-# Versiona apenas codigo-fonte e documentacao. Runtimes (lib/<tool>), modelos,
-# dados (var/), logs e credenciais ficam de fora (auto-contido no disco).
+# Versiona a ESTRUTURA de diretorios (via .gitkeep) + codigo-fonte e docs.
+# Runtimes (lib/<tool>), modelos, dados (var/), logs e credenciais ficam de
+# fora (auto-contido no disco; instaladores recriam tudo localmente).
 # ============================================================================
 
 # Credenciais / segredos
@@ -11,23 +12,46 @@ etc/Tokens.sh
 !*.env.example
 etc/.secrets/
 
-# Runtimes instalados (mantem apenas as bibliotecas bash em lib/*.sh)
+# Runtimes instalados em lib/<tool>: mantem apenas as bibliotecas bash
+# (lib/*.sh) e a estrutura de diretorios (via .gitkeep).
 lib/*
 !lib/*.sh
+!lib/languages/
+!lib/npm/
+!lib/uv-tools/
+!lib/bin/
+lib/languages/*
+!lib/languages/.gitkeep
+lib/npm/*
+!lib/npm/.gitkeep
+lib/uv-tools/*
+!lib/uv-tools/.gitkeep
+lib/bin/*
+!lib/bin/.gitkeep
 
-# Modelos e dados
+# Modelos e dados (mantem estrutura)
 ollama_models/
-share/models/
-share/ollama-models/
-var/
+share/models/*
+!share/models/.gitkeep
+share/ollama-models/*
+!share/ollama-models/.gitkeep
 
-# Logs e backups
-logs/
+# HOME virtual e estado (mantem estrutura)
+var/*
+!var/.gitkeep
+!var/home/
+var/home/*
+!var/home/.gitkeep
+
+# Logs e backups (mantem estrutura)
+logs/*
+!logs/.gitkeep
 *.log
 bak/
 
-# Executaveis gerados (regerados por link_local.sh / instaladores)
-bin/
+# Executaveis gerados (mantem estrutura; regenerados pelo instalador)
+bin/*
+!bin/.gitkeep
 
 # Python
 __pycache__/
